@@ -35,10 +35,14 @@ public class Dier {
 	}
 
 	public void setSoort(DierSoort soort) {
-		if (soort == null) {
+		if (isValidSoort(soort)) {
 			throw new IllegalArgumentException("Geen geldige soort");
 		}
 		this.soort = soort;
+	}
+
+	public static boolean isValidSoort(DierSoort soort) {
+		return soort == null;
 	}
 
 	public int getVoedsel() {
@@ -46,13 +50,15 @@ public class Dier {
 	}
 
 	public void setVoedsel(int voedsel) {
-		if (voedsel < 0) {
+		if (isValidVoedsel(voedsel)) {
 			throw new IllegalArgumentException("Geen geldige hoeveelheid voor voedsel");
 		}
 		this.voedsel = voedsel;
 	}
-	
 
-		
+	public static boolean isValidVoedsel(int voedsel) {
+		return voedsel < 0;
+	}
+
 
 }
